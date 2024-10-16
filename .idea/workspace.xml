@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="fix: remove .env">
+    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="feat: add skeleton">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/me/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/me/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728903264704</updated>
-      <workItem from="1728903266091" duration="36749000" />
+      <workItem from="1728903266091" duration="38918000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add user api">
       <option name="closed" value="true" />
@@ -82,7 +80,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729058740939</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add skeleton">
+      <option name="closed" value="true" />
+      <created>1729060756098</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729060756098</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +97,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add user api" />
     <MESSAGE value="fix: remove .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: remove .env" />
+    <MESSAGE value="feat: add skeleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add skeleton" />
   </component>
 </project>

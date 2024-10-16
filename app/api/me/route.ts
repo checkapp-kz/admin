@@ -1,8 +1,8 @@
-import connect from "@/lib/db";
 import { NextResponse } from "next/server";
+import connect from "@/lib/db";
 import jwt from "jsonwebtoken";
-import User from "@/lib/modals/users"; // Импорт модели пользователя
-import Admin from "@/lib/modals/admins"; // Импорт модели администратора
+import User from "@/lib/modals/users";
+import Admin from "@/lib/modals/admins";
 
 const NEXT_PUBLIC_JWT_SECRET = '4ubRjQbEkhu/vAmtPRKNNCRelPNdc9+5C6+eIiqd/Vs=';
 
@@ -68,4 +68,16 @@ export const GET = async (request: Request) => {
     }
     return new NextResponse('ERROR: An unknown error occurred', { status: 500 });
   }
+};
+
+// Добавляем обработчик OPTIONS для поддержки preflight-запросов
+export const OPTIONS = () => {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // или указанный домен
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
 };

@@ -23,7 +23,7 @@ const Navbar = () => {
   }
 
   const getMe = async () => {
-    const response = await fetch('/api/me/', {
+    const response = await fetch('/api/me', {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
