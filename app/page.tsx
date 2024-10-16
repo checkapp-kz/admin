@@ -15,6 +15,7 @@ import {useRouter} from "next/navigation";
 
 export default function Home() {
   const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const formSchema = z.object({
@@ -35,6 +36,7 @@ export default function Home() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
     try {
       const response = await fetch('/api/auth/', {
         method: 'POST',
@@ -56,6 +58,8 @@ export default function Home() {
     } catch (error) {
       console.error('Error:', error);
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -104,8 +108,8 @@ export default function Home() {
                 <small className="text-red-500">Введите верный <span className="text-sunrise">username</span> или <span className="text-sunrise">password</span></small>
               )}
             </div>
-            <Button type="submit" className="w-full">
-              Войти
+            <Button disabled={isLoading} type="submit" className="w-full">
+              {isLoading ? 'Подождите' : 'Войти'}
             </Button>
           </form>
         </Form>

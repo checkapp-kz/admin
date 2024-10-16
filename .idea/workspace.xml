@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="feat: add user api">
+    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="fix: remove .env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/admins/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/admins/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/auth/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/auth/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/login/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/login/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/me/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/me/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/partner/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/partner/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/dashboard/user/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/user/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728903264704</updated>
-      <workItem from="1728903266091" duration="34722000" />
+      <workItem from="1728903266091" duration="36749000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add user api">
       <option name="closed" value="true" />
@@ -78,7 +74,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729053953035</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: remove .env">
+      <option name="closed" value="true" />
+      <created>1729058740939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729058740939</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add user api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add user api" />
+    <MESSAGE value="fix: remove .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: remove .env" />
   </component>
 </project>

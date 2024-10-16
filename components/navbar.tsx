@@ -8,11 +8,14 @@ import {deleteCookie, getCookie} from "cookies-next";
 import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import {Skeleton} from "@/components/ui/skeleton";
 
 const Navbar = () => {
   const router = useRouter();
   const token = getCookie("jwt-token");
+
   const [me, setMe] = useState();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const exit = () => {
     deleteCookie('jwt-token');
@@ -26,7 +29,7 @@ const Navbar = () => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
-    });
+    }).finally(() => setIsLoading(false));
 
     if (response.ok) {
       const data = await response.json();
@@ -64,7 +67,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-x-4">
-        <p>Добро пожаловать <span className="font-semibold capitalize underline">{ me }</span></p>
+        <div className="flex items-center gap-x-2">
+          Добро пожаловать
+          {isLoading ? (<Skeleton className="w-16 h-4" />) : (
+            <span className="font-semibold capitalize underline">{ me }</span>
+          )}
+        </div>
         <Button
           className="gap-x-1"
           onClick={exit}

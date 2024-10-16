@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import {PasswordInput} from "@/components/ui/password-input";
 import {Input} from "@/components/ui/input";
+import {Skeleton} from "@/components/ui/skeleton";
 
 export default function Dashboard () {
   const [admins, setAdmins] = useState<Admin[]>([]);
@@ -22,6 +23,7 @@ export default function Dashboard () {
 
   const [newUsername, setNewUsername] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const [updatePassword, setUpdatePassword] = useState<string>('');
   const [currentId, setCurrentId] = useState<string>();
@@ -38,6 +40,8 @@ export default function Dashboard () {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
+    }).finally(() => {
+      setIsLoading(false);
     });
 
     if (response.ok) {
@@ -110,31 +114,94 @@ export default function Dashboard () {
     <main className="container mx-auto pt-8">
       <div className="flex items-center justify-between gap-x-8">
         <h1 className="text-4xl font-semibold">Администраторы</h1>
-        <Dialog open={openNewUser} onOpenChange={setOpenNewUser}>
-          <DialogTrigger asChild>
-            <Button variant="outline" size="icon">
-              <UserPlus className="w-4 h-4" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Добавление нового администратора</DialogTitle>
-              <div className="flex flex-col gap-y-2 py-8">
-                <Input
-                  value={newUsername}
-                  onChange={(e) => setNewUsername(e.target.value)}
-                  placeholder="Username"
-                />
-                <PasswordInput
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Пароль"
-                />
-              </div>
+        {isLoading ? (
+          <Skeleton className="w-8 h-8" />
+        ) : (
+          <Dialog open={openNewUser} onOpenChange={setOpenNewUser}>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="icon">
+                <UserPlus className="w-4 h-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Добавление нового администратора</DialogTitle>
+                <div className="flex flex-col gap-y-2 py-8">
+                  <Input
+                    value={newUsername}
+                    onChange={(e) => setNewUsername(e.target.value)}
+                    placeholder="Username"
+                  />
+                  <PasswordInput
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="Пароль"
+                  />
+                </div>
+                <DialogFooter className="justify-end">
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-500"
+                    onClick={addNewAdmin}
+                  >
+                    Сохранить
+                  </Button>
+                  <DialogClose asChild>
+                    <Button type="button" variant="secondary">
+                      Назад
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogHeader>
+
+            </DialogContent>
+          </Dialog>
+        )}
+      </div>
+      <div className="flex flex-col gap-y-2 mt-12">
+        {isLoading ? (
+          <Skeleton className="w-full h-12" />
+        ) : (
+          admins.length > 0 && (
+            admins.map((admin) => (
+              <div key={admin._id} className="flex items-center justify-between w-full border-b pb-2">
+        <div className="flex items-center gap-x-4">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-300">
+            <User className="w-6 h-6 text-white" />
+          </div>
+          <p className="text-xl capitalize">{admin.username}</p>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <Dialog
+            open={openUpdateUser}
+            onOpenChange={setOpenUpdateUser}
+          >
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => {
+                  setCurrentId(admin._id);
+                  setUpdatePassword('');
+                }}
+              >
+                <Pencil className="w-4 h-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Изменения пароля</DialogTitle>
+                <DialogDescription>Пожалуйста введите новый пароль для администратора</DialogDescription>
+              </DialogHeader>
+              <PasswordInput
+                value={updatePassword}
+                onChange={(e) => setUpdatePassword(e.target.value)}
+                placeholder="Новый пароль"
+                aria-hidden={true}
+              />
               <DialogFooter className="justify-end">
                 <Button
                   className="bg-blue-600 hover:bg-blue-500"
-                  onClick={addNewAdmin}
+                  onClick={updateAdmin}
                 >
                   Сохранить
                 </Button>
@@ -144,104 +211,49 @@ export default function Dashboard () {
                   </Button>
                 </DialogClose>
               </DialogFooter>
-            </DialogHeader>
-
-          </DialogContent>
-        </Dialog>
+            </DialogContent>
+          </Dialog>
+          <Dialog
+            open={openDeleteUser}
+            onOpenChange={setOpenDeleteUser}
+          >
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => {
+                  setCurrentId(admin._id);
+                }}
+              >
+                <Trash2 className="w-4 h-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Вы уверены что хотите удалить администратора ?</DialogTitle>
+                <DialogDescription>
+                  После удаления данного администратора он не сможет пользоваться админ-панелью
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="justify-end">
+                <Button
+                  className="bg-red-600 hover:bg-red-500"
+                  onClick={deleteAdmin}
+                >
+                  Да
+                </Button>
+                <DialogClose asChild>
+                  <Button type="button" variant="secondary">
+                    Нет
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
-      <div className="flex flex-col gap-y-2 mt-12">
-        {admins.length > 0 && (
-          admins.map((admin) => (
-            <div key={admin._id} className="flex items-center justify-between w-full border-b pb-2">
-              <div className="flex items-center gap-x-4">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-300">
-                  <User className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-xl capitalize">{admin.username}</p>
-              </div>
-              <div className="flex items-center gap-x-1">
-                <Dialog
-                  open={openUpdateUser}
-                  onOpenChange={setOpenUpdateUser}
-                >
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => {
-                        setCurrentId(admin._id);
-                        setUpdatePassword('');
-                      }}
-                    >
-                      <Pencil className="w-4 h-4" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Изменения пароля</DialogTitle>
-                      <DialogDescription>Пожалуйста введите новый пароль для администратора</DialogDescription>
-                    </DialogHeader>
-                    <PasswordInput
-                      value={updatePassword}
-                      onChange={(e) => setUpdatePassword(e.target.value)}
-                      placeholder="Новый пароль"
-                      aria-hidden={true}
-                    />
-                    <DialogFooter className="justify-end">
-                      <Button
-                        className="bg-blue-600 hover:bg-blue-500"
-                        onClick={updateAdmin}
-                      >
-                        Сохранить
-                      </Button>
-                      <DialogClose asChild>
-                        <Button type="button" variant="secondary">
-                          Назад
-                        </Button>
-                      </DialogClose>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-                <Dialog
-                  open={openDeleteUser}
-                  onOpenChange={setOpenDeleteUser}
-                >
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => {
-                        setCurrentId(admin._id);
-                      }}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Вы уверены что хотите удалить администратора ?</DialogTitle>
-                      <DialogDescription>
-                        После удаления данного администратора он не сможет пользоваться админ-панелью
-                      </DialogDescription>
-                    </DialogHeader>
-                    <DialogFooter className="justify-end">
-                      <Button
-                        className="bg-red-600 hover:bg-red-500"
-                        onClick={deleteAdmin}
-                      >
-                        Да
-                      </Button>
-                      <DialogClose asChild>
-                        <Button type="button" variant="secondary">
-                          Нет
-                        </Button>
-                      </DialogClose>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </div>
-          ))
+            ))
+          )
         )}
       </div>
     </main>
