@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const NEXT_PUBLIC_MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI;
+const NEXT_PUBLIC_MONGODB_URI = 'mongodb+srv://batrbekk:kbekbe031198@main.7lggi.mongodb.net/?retryWrites=true&w=majority&appName=Main';
 
 const connect = async () => {
   try {

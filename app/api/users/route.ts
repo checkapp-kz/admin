@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import connect from "@/lib/db";
 import User from "@/lib/modals/users";
 
-const NEXT_PUBLIC_JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
+const NEXT_PUBLIC_JWT_SECRET = '4ubRjQbEkhu/vAmtPRKNNCRelPNdc9+5C6+eIiqd/Vs=';
 
 if (!NEXT_PUBLIC_JWT_SECRET) {
   throw new Error("NEXT_PUBLIC_JWT_SECRET is not defined. Please set it in your environment variables.");

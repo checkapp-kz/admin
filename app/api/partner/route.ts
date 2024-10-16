@@ -2,11 +2,7 @@ import { Resend } from 'resend';
 import {NextRequest, NextResponse} from 'next/server';
 import {PartnerMailTemplate} from "@/components/partnerMailTemplate";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-
-if (!process.env.NEXT_PUBLIC_RESEND_API_KEY) {
-  throw new Error("NEXT_PUBLIC_RESEND_API_KEY не задан в переменных окружения.");
-}
+const resend = new Resend('re_AEBWt15x_9XGiHsfWgjDPU4hMXfvjpYhA');
 
 export async function POST(request: NextRequest) {
   try {

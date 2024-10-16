@@ -61,8 +61,9 @@ export default function UserPage() {
 
   return (
     <main className="container mx-auto pt-8">
-      <div className="flex items-center justify-between gap-x-8">
+      <div className="flex items-center justify-between">
         <h1 className="text-4xl font-semibold">Пользователи</h1>
+        <h4>Количество: {users.length}</h4>
       </div>
       <div className="flex flex-col gap-y-2 mt-12">
         {users.length > 0 ? (
