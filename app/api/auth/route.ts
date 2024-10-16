@@ -3,10 +3,10 @@ import Admin from "@/lib/modals/admins";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const NEXT_PUBLIC_JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined. Please set it in your environment variables.");
+if (!NEXT_PUBLIC_JWT_SECRET) {
+  throw new Error("NEXT_PUBLIC_JWT_SECRET is not defined. Please set it in your environment variables.");
 } // Рекомендуется хранить в переменной окружения
 
 export const POST = async (request: Request) => {
@@ -22,7 +22,7 @@ export const POST = async (request: Request) => {
       // Генерация JWT токена
       const token = jwt.sign(
         { id: admin._id, username: admin.username, role: 'admin' },  // Payload токена
-        JWT_SECRET,                                  // Секретный ключ для подписи
+        NEXT_PUBLIC_JWT_SECRET,                                  // Секретный ключ для подписи
         { expiresIn: "1d" }                          // Время жизни токена
       );
 

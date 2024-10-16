@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const NEXT_PUBLIC_MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI;
 
 const connect = async () => {
   try {
-    mongoose.connect(MONGODB_URI!, {
+    mongoose.connect(NEXT_PUBLIC_MONGODB_URI!, {
       dbName: 'checkapp',
       bufferCommands: true
     })

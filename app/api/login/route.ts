@@ -4,10 +4,10 @@ import jwt from 'jsonwebtoken';
 import User from '@/lib/modals/users';
 import connectDB from '@/lib/db';
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const NEXT_PUBLIC_JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined. Please set it in your environment variables.");
+if (!NEXT_PUBLIC_JWT_SECRET) {
+  throw new Error("NEXT_PUBLIC_JWT_SECRET is not defined. Please set it in your environment variables.");
 } // Рекомендуется хранить в переменной окружения
 
 export async function POST(request: Request) {
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     // Генерируем JWT-токен
     const token = jwt.sign(
       { id: user._id, email: user.email, role: user.role, name: user.name },
-      JWT_SECRET as string, // Убедитесь, что JWT_SECRET определен
+      NEXT_PUBLIC_JWT_SECRET as string, // Убедитесь, что NEXT_PUBLIC_JWT_SECRET определен
       { expiresIn: '1d' } // Время действия токена
     );
 

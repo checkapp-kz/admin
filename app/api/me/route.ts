@@ -4,10 +4,10 @@ import jwt from "jsonwebtoken";
 import User from "@/lib/modals/users"; // Импорт модели пользователя
 import Admin from "@/lib/modals/admins"; // Импорт модели администратора
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const NEXT_PUBLIC_JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined. Please set it in your environment variables.");
+if (!NEXT_PUBLIC_JWT_SECRET) {
+  throw new Error("NEXT_PUBLIC_JWT_SECRET is not defined. Please set it in your environment variables.");
 }
 
 // Определяем интерфейс для декодированного токена
@@ -19,7 +19,7 @@ interface DecodedToken {
 // Проверка JWT токена и его декодирование
 const verifyToken = (token: string): DecodedToken | null => {
   try {
-    return jwt.verify(token, JWT_SECRET) as DecodedToken; // Явное приведение к интерфейсу
+    return jwt.verify(token, NEXT_PUBLIC_JWT_SECRET) as DecodedToken; // Явное приведение к интерфейсу
   } catch (error) {
     console.error(error);
     return null; // Если токен невалидный, возвращаем null

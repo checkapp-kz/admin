@@ -3,3 +3,9 @@ export interface Admin {
   username: string;
   password: string;
 }
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+}

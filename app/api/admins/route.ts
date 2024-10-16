@@ -3,10 +3,10 @@ import Admin from "@/lib/modals/admins";
 import { NextResponse } from "next/server";
 import jwt, { JwtPayload } from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const NEXT_PUBLIC_JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined. Please set it in your environment variables.");
+if (!NEXT_PUBLIC_JWT_SECRET) {
+  throw new Error("NEXT_PUBLIC_JWT_SECRET is not defined. Please set it in your environment variables.");
 }
 
 // Функция для проверки прав доступа
@@ -22,7 +22,7 @@ const checkAdminRights = (request: Request) => {
   }
 
   try {
-    const decodedToken = jwt.verify(token, JWT_SECRET) as JwtPayload;
+    const decodedToken = jwt.verify(token, NEXT_PUBLIC_JWT_SECRET) as JwtPayload;
     if (decodedToken.role !== "admin") {
       return { status: 403, message: "Недостаточно прав для выполнения этого действия!" };
     }
