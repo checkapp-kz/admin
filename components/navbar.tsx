@@ -59,10 +59,16 @@ const Navbar = () => {
             Пользователи
           </Link>
           <Link
-            href="/dashboard"
+            href="/dashboard/reviews"
             className="underline"
           >
-            Чекапы
+            Отзывы
+          </Link>
+          <Link
+            href="/dashboard/tests"
+            className="underline"
+          >
+            Тесты
           </Link>
         </div>
       </div>

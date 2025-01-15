@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="feat: add skeleton">
+    <list default="true" id="3c196874-0e3f-40e4-ba5c-aa1c695d91cd" name="Changes" comment="fix: fix cors for api/me">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/me/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/me/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,28 +15,41 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Batrbekk&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Batrbekk/checkApp-admin.git&quot;,
+    &quot;accountId&quot;: &quot;31aa70cc-ffb4-42e0-a469-d7d27b7af2fb&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2nQRMRiL9tQ3M1rMYDWQL5LFcJz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/batyrbekkuandyk/Desktop/checkapp-admin/app/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/batyrbekkuandyk/Desktop/checkapp-admin/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/batyrbekkuandyk/Desktop/checkapp-admin/app/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/batyrbekkuandyk/Desktop/checkapp-admin/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/public" />
@@ -50,7 +61,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
       </set>
     </attachedChunks>
   </component>
@@ -62,7 +73,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728903264704</updated>
-      <workItem from="1728903266091" duration="38918000" />
+      <workItem from="1728903266091" duration="42045000" />
+      <workItem from="1731822914756" duration="1584000" />
+      <workItem from="1733954930147" duration="4870000" />
+      <workItem from="1734042118198" duration="2408000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add user api">
       <option name="closed" value="true" />
@@ -88,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729060756098</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: fix cors for api/me">
+      <option name="closed" value="true" />
+      <created>1729072909104</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729072909104</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +120,7 @@
     <MESSAGE value="feat: add user api" />
     <MESSAGE value="fix: remove .env" />
     <MESSAGE value="feat: add skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add skeleton" />
+    <MESSAGE value="fix: fix cors for api/me" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fix cors for api/me" />
   </component>
 </project>

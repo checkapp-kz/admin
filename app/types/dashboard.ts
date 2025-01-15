@@ -9,3 +9,10 @@ export interface User {
   name: string;
   email: string;
 }
+
+export interface Test {
+  _id: string;
+  testType: 'MALE_CHECKUP' | 'FEMALE_CHECKUP';
+  userName: string;
+  createdAt: string;
+}
