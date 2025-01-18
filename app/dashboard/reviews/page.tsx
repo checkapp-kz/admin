@@ -20,7 +20,7 @@ export default function ReviewsPage() {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch('https://checkapp-back.vercel.app/reviews/admin/all');
+      const response = await fetch('https://backend-checkapp.vercel.app/reviews/admin/all');
       const data = await response.json();
       setReviews(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -34,7 +34,7 @@ export default function ReviewsPage() {
   const approveReview = async (reviewId: string) => {
     setActionLoading(reviewId);
     try {
-      const response = await fetch(`https://checkapp-back.vercel.app/reviews/admin/approve/${reviewId}`, {
+      const response = await fetch(`https://backend-checkapp.vercel.app/reviews/admin/approve/${reviewId}`, {
         method: 'PATCH'
       });
       if (response.ok) {
@@ -50,7 +50,7 @@ export default function ReviewsPage() {
   const deleteReview = async (reviewId: string) => {
     setActionLoading(reviewId + '_delete');
     try {
-      const response = await fetch(`https://checkapp-back.vercel.app/reviews/admin/${reviewId}`, {
+      const response = await fetch(`https://backend-checkapp.vercel.app/reviews/admin/${reviewId}`, {
         method: 'DELETE'
       });
       if (response.ok) {

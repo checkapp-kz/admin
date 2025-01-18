@@ -18,7 +18,7 @@ export default function TestsPage() {
 
   const fetchTests = async () => {
     try {
-      const response = await fetch('https://checkapp-back.vercel.app/test/tests');
+      const response = await fetch('https://backend-checkapp.vercel.app/test/tests');
       const data = await response.json();
       setTests(Array.isArray(data) ? data : []);
     } catch (error) {
